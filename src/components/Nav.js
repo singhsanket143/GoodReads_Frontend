@@ -3,10 +3,11 @@ import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from './../images/logo-color.png'
 import ProfileImg from './../images/profile.png'
+import {Link,} from "react-router-dom";
 
 const navigation = [
-  { name: 'Home', href: '#', current: false },
-  { name: 'Dashboard', href: '#', current: true },
+  { name: 'Home', href: '#', current: true },
+  { name: 'Dashboard', href: '#', current: false },
   { name: 'Browse', href: '#', current: false },  
 ]
 
@@ -14,7 +15,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Example() {
+function Nav() {
   return (
     <Disclosure as="nav" className="bg-gray-800">
       {({ open }) => (
@@ -64,13 +65,7 @@ export default function Example() {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-                <button
-                  type="button"
-                  className="rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button>
+               
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -78,7 +73,7 @@ export default function Example() {
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
                       <img
-                        className="hidden h-8 w-auto lg:block"
+                        className="h-8 w-auto lg:block"
                         src={ProfileImg}
                         alt="Profile"
                       />
@@ -120,7 +115,7 @@ export default function Example() {
                             href="#"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                            Sign out
+                           <Link to="/"> Sign out</Link> 
                           </a>
                         )}
                       </Menu.Item>
@@ -154,3 +149,4 @@ export default function Example() {
     </Disclosure>
   )
 }
+export default Nav;
