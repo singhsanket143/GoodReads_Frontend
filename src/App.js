@@ -1,10 +1,10 @@
 
 import './App.css';
-import Nav from './components/Nav'
-import LandingPage from './components/LandingPage'
-import Register from './components/Register'
-import Login from './components/Login'
-import Home from './components/Home'
+import Nav from './common/Nav'
+import LandingPage from './pages/LandingPage'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Home from './pages/Home'
 import {BrowserRouter,Routes,Route} from "react-router-dom";
 
 function App() {

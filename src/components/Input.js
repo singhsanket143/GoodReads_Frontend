@@ -5,6 +5,10 @@ function Input(props) {
     const name = props.name;
     const label = props.label;
     const placeHolder = props.placeHolder;
+
+    const handleKeyPress =  function () {
+      
+    }
     return (
       <div>
         <label htmlFor="price" className="block text-sm font-medium text-gray-700">
