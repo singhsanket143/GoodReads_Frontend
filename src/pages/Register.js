@@ -2,7 +2,7 @@
 import Input from '../components/Input'
 import {Link,} from "react-router-dom";
 import { useState,useEffect} from 'react';
-import { axios } from 'axios';
+import axios from 'axios';
 
 function Register() {
   
@@ -62,20 +62,33 @@ function Register() {
      };
      var signUpUrl = 'http://localhost:3005/api/v1/signup'
 
-     fetch(signUpUrl,{
-      method:'POST',
-      headers: { 'Content-Type': 'application/json' },
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-      body:JSON.stringify(data)
-     })
+   //   fetch(signUpUrl,{
+   //    method:'POST',
+   //    headers: { 'Content-Type': 'application/json' },
+   //    'Access-Control-Allow-Origin': '*',
+   //    'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
+   //    body:JSON.stringify(data)
+   //   })
+   //  .then(function (response) {
+   //    console.log(response);
+   //    if(!response.ok)
+   //    console.log(JSON.stringify(response));
+   //  })
+   //  .catch(function (error) {
+   //    console.log(error);
+   //    console.log(error.message)
+   //  });
+
+   axios.post(signUpUrl,
+      data
+     )
     .then(function (response) {
-      console.log(response);
-      if(!response.ok)
-      console.log(JSON.stringify(response));
+      console.log(response.data);
+      // if(!response.ok)
+      // console.log(JSON.stringify(response));
     })
     .catch(function (error) {
-      console.log(error);
+      console.log(error.response.data);
       console.log(error.message)
     });
     }

@@ -1,7 +1,7 @@
 {
   "name": "bookfront",
   "version": "0.1.0",
-  "proxy": "https://localhost:3005/api/v1/signup",
+  "proxy": "http://localhost:3005/api/v1/signup",
   "private": true,
   "dependencies": {
     "@headlessui/react": "^1.7.10",
