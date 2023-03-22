@@ -1,23 +1,35 @@
 
 import './App.css';
-import Nav from './components/Nav'
-import LandingPage from './components/LandingPage'
-import Register from './components/Register'
-import Login from './components/Login'
-import Home from './components/Home'
-import {BrowserRouter,Routes,Route} from "react-router-dom";
+import LandingPage from './pages/LandingPage'
+import Register from './pages/Register'
+import Login from './pages/Login'
+import Home from './pages/Home'
+import {Routes,Route} from "react-router-dom";
+import Dashboard from './pages/Dashboard';
+import Browse from './pages/Browse';
+import Cookies from 'js-cookie';
+import { useState } from 'react';
+
 
 function App() {
+ 
+  const [userLogged,setUserLogged] = useState(null);
+  const [username,setUsername] = useState(undefined);
+
+
   return (
     <div className="App bg-gray-700 dark:bg-gray-800 ">
-      <BrowserRouter>
+      
         <Routes>
           <Route path="/" element={<LandingPage />}></Route>      
           <Route path="/register" element={<Register />}></Route>
           <Route path="/login" element={<Login />}></Route>
           <Route path="/home" element={<Home />}></Route>
+          <Route path="/dashboard" element={<Dashboard />}></Route>
+          <Route path="/browse" element={<Browse />}></Route>
         </Routes>
-      </BrowserRouter>
+      
+      
     </div>
   );
 }
