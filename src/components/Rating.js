@@ -6,11 +6,12 @@ const Rating = function () {
     console.log(rating)
 
     return(
-        <div className="rating">
+        <div className=" rating">
+            <p className="ml-6">{rating}</p>
             {[...Array(5)].map((star,index) => {
                 index++;
                 return (
-                    <button type="button" key={index} onClick={()=>setRating(index)}><span className="star">&#9733;</span></button>
+                    <button type="button" className="hover:bg-gray-50" key={index} onClick={()=>setRating(index)}><span className="star">&#9733;</span></button>
                 )
             })}
         </div>

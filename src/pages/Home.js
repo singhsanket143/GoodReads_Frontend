@@ -1,18 +1,47 @@
-import { Fragment } from 'react'
-import Logo from './../images/logo-color.png'
-import {createBrowserRouter,RouterProvider,Route,Link,} from "react-router-dom";
+import { Fragment,useContext } from 'react'
+
+import { useNavigate } from "react-router-dom";
+
 import Nav from '../common/Nav'
 import Footer from '../common/Footer'
 import Feed from '../components/Feed'
+import ErrorPage from '../pages/ErrorPage'
 
-function Home() {
-  return (
-    <div className="Home">
-      <Nav />
-        <Feed/>
-      <Footer />
-    </div>
-  );
+import AuthContext from '../helpers/authContext';
+import Cookies from 'universal-cookie'
+
+
+
+const cookies = new Cookies();
+function Home() { 
+  const { isAuthenticated, login, logout } = useContext(AuthContext);
+  const loggedEmail = cookies.get('email')
+  const loggedUsername = cookies.get('loggedUsername')
+
+  const navigate = useNavigate();
+
+  console.log(isAuthenticated);
+  //checklogin
+  if(isAuthenticated)
+  {
+    //render home page
+    return (
+      <div className="Home">
+        <Nav />
+          <h3>Welcome {loggedUsername}</h3>
+          <Feed/>
+        <Footer />
+      </div>
+    );
+  }
+  else{
+    //render 404
+    return(
+      <div>
+        <ErrorPage />
+      </div>
+    )
+  }
 }
 
 export default Home;

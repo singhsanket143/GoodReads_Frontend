@@ -2,7 +2,7 @@
 import Input from '../components/Input'
 import {Link,} from "react-router-dom";
 import { useState,useEffect} from 'react';
-import { axios } from 'axios';
+import  axios  from 'axios';
 
 function Register() {
   
@@ -11,6 +11,7 @@ function Register() {
     const [password,setPassword] = useState('');
     const [validationMessageEmail,setvalidationMessageEmail] = useState('');
     const [validationMessagePass,setvalidationMessagePass] = useState('');
+    const [registerStatus,setRegisterStatus] = useState('');
     const [formError,setformError] = useState(false)
 
     const validateEmail = function () {
@@ -61,24 +62,22 @@ function Register() {
          password: password
      };
      var signUpUrl = 'http://localhost:3005/api/v1/signup'
-
-     fetch(signUpUrl,{
-      method:'POST',
-      headers: { 'Content-Type': 'application/json' },
-      'Access-Control-Allow-Origin': '*',
-      'Access-Control-Allow-Headers': 'Origin, X-Requested-With, Content-Type, Accept, Authorization',
-      body:JSON.stringify(data)
-     })
-    .then(function (response) {
-      console.log(response);
-      if(!response.ok)
-      console.log(JSON.stringify(response));
-    })
-    .catch(function (error) {
-      console.log(error);
-      console.log(error.message)
-    });
-    }
+   
+      try {
+         const responseData = await axios.post(signUpUrl,data);
+         console.log(responseData);
+         if(responseData.status == 201)
+         {
+            setRegisterStatus("Registeration is successful.You can login now");
+            console.log("registered login");
+         }
+      } catch (error) {
+         console.log(error.response.data.err[0]);
+         console.log(error.response.data);
+         setRegisterStatus(error.response.data.message)         
+      }
+      
+   }
   
   return (
          

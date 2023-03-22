@@ -5,14 +5,20 @@ import Logo from './../images/logo-color.png'
 import ProfileImg from './../images/profile.png'
 import {Link,} from "react-router-dom";
 
+
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Dashboard', href: '#', current: false },
-  { name: 'Browse', href: '#', current: false },  
+  { name: 'Home', href: '/home', current: true },
+  { name: 'Dashboard', href: '/dashboard', current: false },
+  { name: 'Browse', href: '/browse', current: false },  
 ]
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
+}
+
+function logout()
+{
+  
 }
 
 function Nav() {
