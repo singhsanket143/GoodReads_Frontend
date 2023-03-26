@@ -27,7 +27,7 @@ function Home() {
     //render home page
     return (
       <div className="Home">
-        <Nav />
+        <Nav activeIndex='0'/>
           <h3>Welcome {loggedUsername}</h3>
           <Feed/>
         <Footer />

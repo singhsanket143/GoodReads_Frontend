@@ -68,6 +68,7 @@ function Login() {
          "email": email,
          "password": password
      };
+     console.log(data);
      var signInUrl = 'http://localhost:3005/api/v1/signin';
      
      try {
@@ -112,14 +113,14 @@ function Login() {
                 
                     <div className="flex flex-col mb-2">
                     <div className=" relative ">
-                    <input onChange={function(e){validateEmail();setEmail(e.target.value)}}
+                    <input onBlur={function(e){validateEmail();setEmail(e.target.value)}}
                                label="Email" type="text" placeholder="Email" name="email"            
                                 className="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"/>
                         </div>
                     </div>
                             <div className="flex flex-col mb-2">
                                 <div className=" relative ">
-                                <input onChange={function(e){ setLoginError(''); setPassword(e.target.value)}}
+                                <input onBlur={function(e){ setLoginError(''); setPassword(e.target.value)}}
                                 label="Password" type="password" placeholder="Password" name="password"            
                                 className="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"/>
                                 

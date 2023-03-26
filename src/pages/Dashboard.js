@@ -9,7 +9,7 @@ import Sidebar from '../common/Sidebar';
 function Dashboard() {
   return (
         <div>
-            <Nav />
+            <Nav activeIndex='1' />
             <div className='flex flex-row justify-between'>
                 <Sidebar />
                 <Table />

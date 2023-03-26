@@ -11,7 +11,8 @@ function Register() {
     const [password,setPassword] = useState('');
     const [validationMessageEmail,setvalidationMessageEmail] = useState('');
     const [validationMessagePass,setvalidationMessagePass] = useState('');
-    const [registerStatus,setRegisterStatus] = useState('');
+    const [registerStatus,setRegisterStatus] = useState('false');
+    const [registerMsg,setRegisterMsg] = useState('');
     const [formError,setformError] = useState(false)
 
     const validateEmail = function () {
@@ -62,19 +63,20 @@ function Register() {
          password: password
      };
      var signUpUrl = 'http://localhost:3005/api/v1/signup'
-   
       try {
          const responseData = await axios.post(signUpUrl,data);
          console.log(responseData);
          if(responseData.status == 201)
          {
-            setRegisterStatus("Registeration is successful.You can login now");
+            setRegisterMsg("Registeration is successful.You can login now");
+            setRegisterStatus(true)
             console.log("registered login");
          }
       } catch (error) {
          console.log(error.response.data.err[0]);
          console.log(error.response.data);
-         setRegisterStatus(error.response.data.message)         
+         setRegisterMsg(error.response.data.message)  
+         setRegisterStatus(false)       
       }
       
    }
@@ -96,6 +98,8 @@ function Register() {
        </span>
        <p className='bg-red-300 mt-3 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-red-500 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg'> {validationMessageEmail}</p>
        <p className='bg-red-300 mt-3 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-red-500 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg'>{validationMessagePass}</p>
+       <p className='bg-red-300 mt-3 hover:bg-indigo-700 focus:ring-indigo-500 focus:ring-offset-indigo-200 text-red-500 w-full transition ease-in duration-200 text-center text-base font-semibold shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2  rounded-lg'>{registerStatus} </p>
+
        <div className="p-6 mt-0">
           <form action="#">
              <div className="flex gap-4 mb-2">
@@ -109,7 +113,7 @@ function Register() {
                             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                 <span className="text-gray-500 sm:text-sm"></span>
                             </div>
-                            <input onChange={function(e){setUsername(e.target.value)}}
+                            <input onBlur={function(e){setUsername(e.target.value)}}
                                 label="Username" type="text" placeholder="Username" name="username"            
                                 className="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"/>
                         </div>
@@ -127,7 +131,7 @@ function Register() {
                             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                 <span className="text-gray-500 sm:text-sm"></span>
                             </div>
-                            <input onChange={function(e){setEmail(e.target.value)}}
+                            <input onBlur={function(e){setEmail(e.target.value)}}
                                label="Email" type="text" placeholder="Email" name="email"            
                                 className="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"/>
                         </div>
@@ -144,7 +148,7 @@ function Register() {
                             <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-3">
                                 <span className="text-gray-500 sm:text-sm"></span>
                             </div>
-                            <input onChange={function(e){setPassword(e.target.value)}}
+                            <input onBlur={function(e){setPassword(e.target.value)}}
                                 label="Password" type="password" placeholder="Password" name="password"            
                                 className="block w-full rounded-md border-gray-300 pl-7 pr-12 focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm"/>
                         </div>

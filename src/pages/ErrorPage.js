@@ -3,7 +3,7 @@ import Input from '../components/Input'
 import {Link,useNavigate} from "react-router-dom";
 
 
-function Login() {
+function Error() {
 
 
   return (
@@ -25,4 +25,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Error;

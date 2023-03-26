@@ -16,9 +16,9 @@ function Browse() {
   
   return (
         <div>
-            <Nav />
+            <Nav activeIndex='2'/>
             <div className='flex flex-row justify-between'>
-                <Sidebar props={selected} />
+                
                 <Gallery />
             </div>
             <Footer />
