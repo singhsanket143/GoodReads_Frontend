@@ -4,7 +4,7 @@ import {createBrowserRouter,RouterProvider,Route,Link,} from "react-router-dom";
 import Gallery from '../components/Gallery';
 import Footer from '../common/Footer';
 import Nav from '../common/Nav';
-import Sidebar from '../common/Sidebar';
+import Sidebar from '../components/Sidebar';
 import { useState } from "react";
 import  axios  from 'axios';
 

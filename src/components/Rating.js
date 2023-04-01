@@ -1,13 +1,11 @@
 import { useState } from "react"
 
-const Rating = function () {
+const Rating = function (props) {
     const [rating,setRating] = useState(0);
-
-    console.log(rating)
 
     return(
         <div className=" rating">
-            <p className="ml-6">{rating}</p>
+            <p className="ml-6">{props.rating}</p>
             {[...Array(5)].map((star,index) => {
                 index++;
                 return (

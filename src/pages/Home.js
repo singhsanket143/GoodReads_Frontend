@@ -19,7 +19,7 @@ function Home() {
   const loggedUsername = cookies.get('loggedUsername')
 
   const navigate = useNavigate();
-
+  login(); 
   console.log(isAuthenticated);
   //checklogin
   if(isAuthenticated)

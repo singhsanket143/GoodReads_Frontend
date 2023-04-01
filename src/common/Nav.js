@@ -1,4 +1,4 @@
-import { Fragment } from 'react'
+import { Fragment,useContext } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from './../images/logo-color.png'
@@ -16,10 +16,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-function logout()
-{
-  
-}
 
 function setCurrentTab(props){
   navigation.map(function(item){
@@ -28,7 +24,7 @@ function setCurrentTab(props){
   navigation[props.activeIndex].current=true;
 }
 function Nav(props) {
-  
+
   setCurrentTab(props)
   return (
     <Disclosure as="nav" className="bg-gray-800">
@@ -118,10 +114,10 @@ function Nav(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/logout"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                           <Link to="/"> Sign out</Link> 
+                           <Link to='/logout'>Logout </Link>
                           </a>
                         )}
                       </Menu.Item>

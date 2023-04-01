@@ -1,10 +1,11 @@
-import { Fragment,useState,useEffect } from 'react'
+import { Fragment,useState,useEffect,useContext } from 'react'
 import Logo from './../images/logo-color.png'
 import {createBrowserRouter,RouterProvider,Route,Link,} from "react-router-dom";
 import Nav from '../common/Nav'
 import axios from 'axios';
-import BookImg from './../images/book.jpg'
 import Book from './Book';
+
+
 
 
 
@@ -40,13 +41,14 @@ function Table() {
   return(<h3>Loading</h3>)
   else
   return (
+    
     <section className="text-gray-600 body-font">
         <div className="container px-5 py-24 mx-auto">
             <div className="flex flex-wrap -m-4">
       
       {
         books.map((item)=>(
-          <Book bookName={item.title}
+          <Book id={item._id} bookName={item.title}
           authorName={item.author}
           genre={item.genres[0]} 
           description={item.description}>

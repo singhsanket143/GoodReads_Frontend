@@ -1,11 +1,16 @@
 
 import Input from '../components/Input'
 import {Link,useNavigate} from "react-router-dom";
+import AuthContext from '../helpers/authContext';
+import { useState,useContext } from 'react';
 
 
-function Error() {
+function ErrorPage() {
+    const { isAuthenticated, login, logout } = useContext(AuthContext);
 
-
+    if(isAuthenticated)
+    logout();
+    
   return (
 <div className='flex justify-center '>     
     <div className="justify-items-center flex-col max-w-md px-4 py-8 rounded-lg shadow dark:bg-gray-800 sm:px-6 md:px-8 lg:px-10">
@@ -25,4 +30,4 @@ function Error() {
   );
 }
 
-export default Error;
+export default ErrorPage;
