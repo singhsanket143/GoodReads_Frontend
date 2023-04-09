@@ -1,25 +1,25 @@
-import { Fragment,useEffect } from 'react'
+import { Fragment, useEffect } from 'react'
 import Logo from './../images/logo-color.png'
-import {createBrowserRouter,RouterProvider,Route,Link, useParams,} from "react-router-dom";
+import { createBrowserRouter, RouterProvider, Route, Link, useParams, } from "react-router-dom";
 import Gallery from '../components/Gallery';
-import Footer from '../common/Footer';
-import Nav from '../common/Nav';
+import Footer from './Footer';
+import Nav from './Nav';
 
 
 
 
 
 function Loading() {
-  
+
   return (
     <div>
-            <Nav activeIndex='2'/>
-            <h1> Loading Please Wait</h1>
-        
-            <Footer />
-        </div>
-    
-   
+      <Nav activeIndex='2' />
+      <h1> Loading Please Wait</h1>
+
+      <Footer />
+    </div>
+
+
 
   );
 }

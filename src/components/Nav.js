@@ -1,15 +1,15 @@
-import { Fragment,useContext } from 'react'
+import { Fragment, useContext } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from './../images/logo-color.png'
 import ProfileImg from './../images/profile.png'
-import {Link,} from "react-router-dom";
+import { Link, } from "react-router-dom";
 
 
 const navigation = [
   { name: 'Home', href: '/home', current: true },
   { name: 'Dashboard', href: '/dashboard', current: false },
-  { name: 'Browse', href: '/browse', current: false },  
+  { name: 'Browse', href: '/browse', current: false },
 ]
 
 function classNames(...classes) {
@@ -17,11 +17,11 @@ function classNames(...classes) {
 }
 
 
-function setCurrentTab(props){
-  navigation.map(function(item){
-    item.current =false;
+function setCurrentTab(props) {
+  navigation.map(function (item) {
+    item.current = false;
   });
-  navigation[props.activeIndex].current=true;
+  navigation[props.activeIndex].current = true;
 }
 function Nav(props) {
 
@@ -33,7 +33,7 @@ function Nav(props) {
           <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
             <div className="relative flex h-16 items-center justify-between">
               <div className="absolute inset-y-0 left-0 flex items-center sm:hidden">
-                
+
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
@@ -67,7 +67,7 @@ function Nav(props) {
                 </div>
               </div>
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-               
+
 
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
@@ -117,7 +117,7 @@ function Nav(props) {
                             href="/logout"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
-                           <Link to='/logout'>Logout </Link>
+                            <Link to='/logout'>Logout </Link>
                           </a>
                         )}
                       </Menu.Item>
@@ -140,7 +140,7 @@ function Nav(props) {
                     'block px-3 py-2 rounded-md text-base font-medium'
                   )}
                   aria-current={item.current ? 'page' : undefined}
-                  
+
                 >
                   {item.name}
                 </Disclosure.Button>
