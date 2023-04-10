@@ -1,116 +1,68 @@
-import { Fragment } from 'react'
+import { Fragment, useState, useEffect, useContext } from 'react'
 import Logo from './../images/logo-color.png'
-import {createBrowserRouter,RouterProvider,Route,Link,} from "react-router-dom";
-import Nav from '../common/Nav'
-import Footer from '../common/Footer'
-import SocialCard from './SocialCard'
-import BookImg from './../images/book.jpg'
-import Rating from './Rating';
+import { createBrowserRouter, RouterProvider, Route, Link, } from "react-router-dom";
+import Nav from './Nav'
+import axios from 'axios';
+import Book from './Book';
+
+
 
 
 
 
 function Table() {
-  return (
-    <section className="text-gray-600 body-font">
-        <div className="container px-5 py-24 mx-auto">
-            <div className="flex flex-wrap -m-4">
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={BookImg}/>
-        </a>
-        <div className="mt-4">
-          <h3 className="text-gray-400 text-s tracking-widest title-font mb-1">The title of the book</h3>
-          <h2 className="text-gray-300 title-font text-lg font-medium">Jagdish Jd</h2>
-          <p className="mt-1 text-red-400">4.3*</p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={BookImg}/>
-        </a>
-        <div className="mt-4">
-          <h3 className="text-gray-400 text-s tracking-widest title-font mb-1">The title of the book</h3>
-          <h2 className="text-gray-300 title-font text-lg font-medium">Jagdish Jd</h2>
-          <p className="mt-1 text-red-400">4.3*</p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={BookImg}/>
-        </a>
-        <div className="mt-4">
-          <h3 className="text-gray-400 text-s tracking-widest title-font mb-1">The title of the book</h3>
-          <h2 className="text-gray-300 title-font text-lg font-medium">Jagdish Jd</h2>
-          <p className="mt-1 text-red-400">4.3*</p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={BookImg}/>
-        </a>
-        <div className="mt-4">
-          <h3 className="text-gray-400 text-s tracking-widest title-font mb-1">The title of the book</h3>
-          <h2 className="text-gray-300 title-font text-lg font-medium">Jagdish Jd</h2>
-          <p className="mt-1 text-red-400">4.3*</p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={BookImg}/>
-        </a>
-        <div className="mt-4">
-          <h3 className="text-gray-400 text-s tracking-widest title-font mb-1">The title of the book</h3>
-          <h2 className="text-gray-300 title-font text-lg font-medium">Jagdish Jd</h2>
-          <p className="mt-1 text-red-400">4.3*</p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={BookImg}/>
-        </a>
-        <div className="mt-4">
-          <h3 className="text-gray-400 text-s tracking-widest title-font mb-1">The title of the book</h3>
-          <h2 className="text-gray-300 title-font text-lg font-medium">Jagdish Jd</h2>
-          <p className="mt-1 text-red-400">4.3*</p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={BookImg}/>
-        </a>
-        <div className="mt-4">
-          <h3 className="text-gray-400 text-s tracking-widest title-font mb-1">The title of the book</h3>
-          <h2 className="text-gray-300 title-font text-lg font-medium">Jagdish Jd</h2>
-          <p className="mt-1 text-red-400">4.3*</p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={BookImg}/>
-        </a>
-        <div className="mt-4">
-          <h3 className="text-gray-400 text-s tracking-widest title-font mb-1">The title of the book</h3>
-          <h2 className="text-gray-300 title-font text-lg font-medium">Jagdish Jd</h2>
-          <p className="mt-1 text-red-400">4.3*</p>
-        </div>
-      </div>
-      <div className="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a className="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" className="object-cover object-center w-full h-full block" src={BookImg}/>
-        </a>
-        <div className="mt-4">
-          <h3 className="text-gray-400 text-s tracking-widest title-font mb-1">The title of the book</h3>
-          <h2 className="text-gray-300 title-font text-lg font-medium">Jagdish Jd</h2>
-          <p className="mt-1 text-red-400">4.3*</p>
-        </div>
-      </div>
-      
-            </div>
-        </div>
-</section>
 
-  );
+  const [books, setBooks] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    getBooks();
+  }, [loading, setLoading])
+  async function getBooks() {
+    var booksUrl = 'http://localhost:3005/api/v1/books';
+
+    try {
+      const responseData = await axios.get(booksUrl);
+      console.log(responseData.data.data);
+      setBooks(responseData.data.data)
+      setLoading(false);
+
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
+  }
+
+
+
+  if (loading)
+    return (<h3>Loading</h3>)
+  else
+    return (
+
+      <section className="text-gray-600 body-font">
+        <div className="container px-5 py-24 mx-auto">
+          <div className="flex flex-wrap -m-4">
+
+            {
+              books.map((item) => (
+                <Book id={item._id} bookName={item.title}
+                  authorName={item.author}
+                  genre={item.genres[0]}
+                  description={item.description}>
+
+                </Book>
+              ))
+            }
+
+
+          </div>
+        </div>
+      </section>
+
+    );
 }
 
 export default Table;

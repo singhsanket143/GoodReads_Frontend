@@ -1,9 +1,9 @@
-import { Fragment,useContext } from 'react'
+import { Fragment, useContext } from 'react'
 
 import { useNavigate } from "react-router-dom";
 
-import Nav from '../common/Nav'
-import Footer from '../common/Footer'
+import Nav from '../components/Nav'
+import Footer from '../components/Footer'
 import Feed from '../components/Feed'
 import ErrorPage from '../pages/ErrorPage'
 
@@ -13,30 +13,29 @@ import Cookies from 'universal-cookie'
 
 
 const cookies = new Cookies();
-function Home() { 
+function Home() {
   const { isAuthenticated, login, logout } = useContext(AuthContext);
   const loggedEmail = cookies.get('email')
   const loggedUsername = cookies.get('loggedUsername')
 
   const navigate = useNavigate();
-
+  login();
   console.log(isAuthenticated);
   //checklogin
-  if(isAuthenticated)
-  {
+  if (isAuthenticated) {
     //render home page
     return (
       <div className="Home">
-        <Nav />
-          <h3>Welcome {loggedUsername}</h3>
-          <Feed/>
+        <Nav activeIndex='0' />
+        <h3>Welcome {loggedUsername}</h3>
+        <Feed />
         <Footer />
       </div>
     );
   }
-  else{
+  else {
     //render 404
-    return(
+    return (
       <div>
         <ErrorPage />
       </div>

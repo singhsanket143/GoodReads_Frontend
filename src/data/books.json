@@ -1,0 +1,98 @@
+[
+    {
+        "bookname": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "published_date": "1951-07-16",
+        "rating": 4.2,
+        "category": "Fiction",
+        "section": "Read"
+    },
+    {
+        "bookname": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "published_date": "1937-09-21",
+        "rating": 4.7,
+        "category": "Fantasy",
+        "section": "Read"
+    },
+    {
+        "bookname": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "published_date": "1960-07-11",
+        "rating": 4.5,
+        "category": "Fiction",
+        "section": "Currently Reading"
+    },
+    {
+        "bookname": "1984",
+        "author": "George Orwell",
+        "published_date": "1949-06-08",
+        "rating": 4.3,
+        "category": "Science Fiction",
+        "section": "Currently Reading"
+    },
+    {
+        "bookname": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "published_date": "1925-04-10",
+        "rating": 4.1,
+        "category": "Fiction",
+        "section": "Currently Reading"
+    },
+    {
+        "bookname": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "published_date": "1813-01-28",
+        "rating": 4.0,
+        "category": "Romance",
+        "section": "Read"
+    },
+    {
+        "bookname": "The Catcher in the Rye",
+        "author": "J.D. Salinger",
+        "published_date": "1951-07-16",
+        "rating": 4.2,
+        "category": "Fiction",
+        "section": "Read"
+    },
+    {
+        "bookname": "The Hobbit",
+        "author": "J.R.R. Tolkien",
+        "published_date": "1937-09-21",
+        "rating": 4.7,
+        "category": "Fantasy",
+        "section": "Read"
+    },
+    {
+        "bookname": "To Kill a Mockingbird",
+        "author": "Harper Lee",
+        "published_date": "1960-07-11",
+        "rating": 4.5,
+        "category": "Fiction",
+        "section": "Currently Reading"
+    },
+    {
+        "bookname": "1984",
+        "author": "George Orwell",
+        "published_date": "1949-06-08",
+        "rating": 4.3,
+        "category": "Science Fiction",
+        "section": "Currently Reading"
+    },
+    {
+        "bookname": "The Great Gatsby",
+        "author": "F. Scott Fitzgerald",
+        "published_date": "1925-04-10",
+        "rating": 4.1,
+        "category": "Fiction",
+        "section": "Currently Reading"
+    },
+    {
+        "bookname": "Pride and Prejudice",
+        "author": "Jane Austen",
+        "published_date": "1813-01-28",
+        "rating": 4.0,
+        "category": "Romance",
+        "section": "Read"
+    }
+]
