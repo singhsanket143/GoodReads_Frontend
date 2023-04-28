@@ -1,13 +1,12 @@
 
 import SidebarItem from './SidebarItem'
-import { useState, useContext } from 'react'
-import SectionContext from '../helpers/sectionContext'
+import { useState } from 'react'
+
 
 
 
 function Sidebar() {
-   const { section, setSection } = useContext(SectionContext)
-
+   
    const [newShelfName, setNewShelfName] = useState('')
    const [sidebarItems, setSidebarItems] = useState([
       { name: 'All', href: '/home', current: true },
@@ -15,16 +14,12 @@ function Sidebar() {
       { name: 'Currently Reading', href: '/browse', current: false },
    ])
 
-   console.log(section)
+   
    function createNewShelf() {
       setSidebarItems([...sidebarItems, { name: newShelfName }]);
       console.log(sidebarItems)
 
    }
-   function changeSection() {
-
-   }
-
    return (
 
       <div className=" ">
@@ -33,7 +28,6 @@ function Sidebar() {
                {
                   sidebarItems.map((item) => (
                      <SidebarItem name={item.name}
-
                      >
                      </SidebarItem>
                   ))

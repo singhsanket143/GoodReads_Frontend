@@ -1,21 +1,29 @@
-import { Fragment } from 'react'
-import Logo from './../images/logo-color.png'
-import { createBrowserRouter, RouterProvider, Route, Link, } from "react-router-dom";
+
 import Gallery from '../components/Gallery';
 import Footer from '../components/Footer';
 import Nav from '../components/Nav';
-import Sidebar from '../components/Sidebar';
-import { useState } from "react";
-import axios from 'axios';
+import { useContext } from "react";
+import ErrorPage from '../pages/ErrorPage'
+import AuthContext from '../helpers/authContext';
+import Cookies from 'universal-cookie'
 
 
+
+const cookies = new Cookies();
 
 function Browse() {
-  const [selected, setSelected] = useState('All');
+  const { isAuthenticated, login } = useContext(AuthContext);
+  const loggedEmail = cookies.get('email')
+  const loggedUsername = cookies.get('loggedUsername')
 
-
-  return (
-    <div>
+  login();
+  
+  console.log(isAuthenticated+loggedEmail+loggedUsername);
+  //checklogin
+  if (isAuthenticated) {
+    //render dashboard page
+    return (
+      <div>
       <Nav activeIndex='2' />
       <div className='flex flex-row justify-between'>
 
@@ -23,9 +31,17 @@ function Browse() {
       </div>
       <Footer />
     </div>
-
-
-  );
+    );
+  }
+  else {
+    //render 404
+    return (
+      <div>
+        <ErrorPage />
+      </div>
+    )
+  }
+  
 }
 
 export default Browse;

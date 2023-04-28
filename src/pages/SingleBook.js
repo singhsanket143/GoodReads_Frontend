@@ -23,7 +23,7 @@ function SingleBook() {
     getBooks();
   }, [loading, setLoading])
   async function getBooks() {
-    var booksUrl = 'http://localhost:3005/api/v1/books/' + params.id;
+    const booksUrl = 'http://localhost:3005/api/v1/books/' + params.id; //hardcording for tetsing
 
     try {
       const responseData = await axios.get(booksUrl);

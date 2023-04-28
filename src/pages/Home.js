@@ -1,12 +1,8 @@
-import { Fragment, useContext } from 'react'
-
-import { useNavigate } from "react-router-dom";
-
+import { useContext } from 'react'
 import Nav from '../components/Nav'
 import Footer from '../components/Footer'
 import Feed from '../components/Feed'
 import ErrorPage from '../pages/ErrorPage'
-
 import AuthContext from '../helpers/authContext';
 import Cookies from 'universal-cookie'
 
@@ -14,13 +10,12 @@ import Cookies from 'universal-cookie'
 
 const cookies = new Cookies();
 function Home() {
-  const { isAuthenticated, login, logout } = useContext(AuthContext);
+  const { isAuthenticated, login } = useContext(AuthContext);
   const loggedEmail = cookies.get('email')
   const loggedUsername = cookies.get('loggedUsername')
 
-  const navigate = useNavigate();
   login();
-  console.log(isAuthenticated);
+  console.log(isAuthenticated+loggedEmail);
   //checklogin
   if (isAuthenticated) {
     //render home page
