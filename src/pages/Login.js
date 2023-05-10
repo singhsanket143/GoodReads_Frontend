@@ -25,7 +25,7 @@ function Login() {
 
     const validateEmail = function () {
 
-        var emailRegex = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
+        const emailRegex = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
         if (!emailRegex.test(email) || email === '') {
             setformError(true)
             setvalidationMessageEmail('Email should be something@something.com');
@@ -40,7 +40,7 @@ function Login() {
     }
 
     const validatePassword = function () {
-        var passRegex = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$')
+        const passRegex = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$')
         if (!passRegex.test(password) || password === '') {
             setvalidationMessagePass('Password should be 8 letters');
             console.log("Password should be 8 letters")
@@ -61,12 +61,12 @@ function Login() {
 
     }
     const signIn = async () => {
-        var data = {
+            let data = {
             "email": email,
             "password": password
         };
         console.log(data);
-        var signInUrl = 'http://localhost:3005/api/v1/signin';
+        const signInUrl = 'http://localhost:3005/api/v1/signin';
 
         try {
             const responseData = await axios.post(signInUrl, data);

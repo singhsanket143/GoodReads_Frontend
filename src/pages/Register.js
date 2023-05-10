@@ -17,7 +17,7 @@ function Register() {
 
    const validateEmail = function () {
 
-      var emailRegex = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
+      const emailRegex = new RegExp('^[a-zA-Z0-9._:$!%-]+@[a-zA-Z0-9.-]+.[a-zA-Z]$');
       if (!emailRegex.test(email)) {
          setvalidationMessageEmail('Email should be something@something.com');
 
@@ -31,7 +31,7 @@ function Register() {
 
    }
    const validatePassword = function () {
-      var passRegex = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$')
+      const passRegex = new RegExp('^(?=.*?[A-Za-z])(?=.*?[0-9]).{6,}$')
       if (!passRegex.test(password)) {
          setvalidationMessagePass('Password should be 8 letters');
          console.log("Password should be 8 letters")
@@ -54,16 +54,16 @@ function Register() {
 
    }
    const signUp = async () => {
-      var data = {
+      let data = {
          username: username,
          email: email,
          password: password
       };
-      var signUpUrl = 'http://localhost:3005/api/v1/signup'
+      const signUpUrl = 'http://localhost:3005/api/v1/signup' //hardcoding for testing
       try {
          const responseData = await axios.post(signUpUrl, data);
          console.log(responseData);
-         if (responseData.status == 201) {
+         if (responseData.status === 201) {
             setRegisterMsg("Registeration is successful.You can login now");
             setRegisterStatus(true)
             console.log("registered login");

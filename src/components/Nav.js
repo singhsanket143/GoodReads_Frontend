@@ -1,12 +1,12 @@
-import { Fragment, useContext } from 'react'
+import { Fragment } from 'react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import Logo from './../images/logo-color.png'
 import ProfileImg from './../images/profile.png'
 import { Link, } from "react-router-dom";
 
 
-const navigation = [
+
+let navigation = [
   { name: 'Home', href: '/home', current: true },
   { name: 'Dashboard', href: '/dashboard', current: false },
   { name: 'Browse', href: '/browse', current: false },
@@ -18,9 +18,11 @@ function classNames(...classes) {
 
 
 function setCurrentTab(props) {
-  navigation.map(function (item) {
-    item.current = false;
-  });
+ 
+  for( let i =0 ;i < navigation.length ; i++)
+  {
+    navigation.current = false;
+  }
   navigation[props.activeIndex].current = true;
 }
 function Nav(props) {
@@ -94,7 +96,7 @@ function Nav(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/profile"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Your Profile
@@ -104,7 +106,7 @@ function Nav(props) {
                       <Menu.Item>
                         {({ active }) => (
                           <a
-                            href="#"
+                            href="/setting"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >
                             Settings
@@ -113,7 +115,7 @@ function Nav(props) {
                       </Menu.Item>
                       <Menu.Item>
                         {({ active }) => (
-                          <a
+                          <a 
                             href="/logout"
                             className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
                           >

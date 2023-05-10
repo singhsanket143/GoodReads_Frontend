@@ -10,6 +10,7 @@ const AuthProvider = ({ children }) => {
   const login = () => {
     // logic to check authentication using cookies
     console.log(cookies.get('jwtToken'));
+    if(cookies.get('jwtToken'))
     setIsAuthenticated(true);
   };
 

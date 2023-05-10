@@ -9,15 +9,10 @@ import { Routes, Route } from "react-router-dom";
 import Dashboard from './pages/Dashboard';
 import Browse from './pages/Browse';
 import SingleBook from './pages/SingleBook';
-import Cookies from 'js-cookie';
-import { useState } from 'react';
+
 
 
 function App() {
-
-  const [userLogged, setUserLogged] = useState(null);
-  const [username, setUsername] = useState(undefined);
-
 
   return (
     <div className="App bg-gray-700 dark:bg-gray-800 ">

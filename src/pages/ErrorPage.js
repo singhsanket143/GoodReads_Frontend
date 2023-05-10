@@ -1,15 +1,18 @@
 
-import Input from '../components/Input'
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import AuthContext from '../helpers/authContext';
-import { useState, useContext } from 'react';
+import {  useContext } from 'react';
 
 
 function ErrorPage() {
-    const { isAuthenticated, login, logout } = useContext(AuthContext);
+    const { isAuthenticated, logout } = useContext(AuthContext);
 
     if (isAuthenticated)
+    {
         logout();
+
+        console.log("logged out")
+    }
 
     return (
         <div className='flex justify-center '>

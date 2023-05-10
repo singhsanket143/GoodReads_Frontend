@@ -9,7 +9,7 @@ import Rating from './Rating';
 import SectionContext from '../helpers/sectionContext'
 import bookData from '../data/books.json'
 
-var myBooks = bookData;
+let myBooks = bookData;
 
 
 function Table() {

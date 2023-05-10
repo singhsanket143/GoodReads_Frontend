@@ -1,13 +1,6 @@
-import { Fragment, useState, useEffect, useContext } from 'react'
-import Logo from './../images/logo-color.png'
-import { createBrowserRouter, RouterProvider, Route, Link, } from "react-router-dom";
-import Nav from './Nav'
+import { useState, useEffect } from 'react'
 import axios from 'axios';
 import Book from './Book';
-
-
-
-
 
 
 function Table() {
@@ -19,7 +12,7 @@ function Table() {
     getBooks();
   }, [loading, setLoading])
   async function getBooks() {
-    var booksUrl = 'http://localhost:3005/api/v1/books';
+    const booksUrl = 'http://localhost:3005/api/v1/books';
 
     try {
       const responseData = await axios.get(booksUrl);
